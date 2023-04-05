@@ -1,1 +1,53 @@
-<p>age works!</p>
+<div class="container-form">
+
+    <div class="info-box">
+
+        <h1>
+            Age Calculator
+        </h1>
+
+        <p>
+            Inserisci nome, cognome e data di nascita per scoprire quanto tempo hai vissuto!
+        </p>
+    
+    </div>
+
+    <form class="age-form" #ageForm="ngForm" (ngSubmit)="getUserValue(ageForm.value)">
+  
+        <table class="form-container" cellspacing="0">
+            <tr>
+    
+                <td>
+                    <mat-form-field class="form-item">
+                        <mat-label>First name</mat-label>
+                        <input matInput ngModel name="name">
+                    </mat-form-field>
+                </td>
+    
+                <td>
+                    <mat-form-field class="form-item">
+                        <mat-label>Last name</mat-label>
+                        <input matInput ngModel name="lastname">
+                    </mat-form-field>
+                </td>
+    
+                <td>
+                    <mat-form-field class="form-item" appearance="fill">
+                        <mat-label>Choose a date</mat-label>
+                        <input id="sampleDate" matInput ngModel name="date" [matDatepicker]="picker">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </td>
+    
+                <td>
+                    <button mat-button>Get User Value</button>
+                </td>
+    
+            </tr>
+        </table>
+    
+    </form>
+
+</div>
