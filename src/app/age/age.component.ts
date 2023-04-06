@@ -12,7 +12,7 @@ export class AgeComponent implements OnInit {
 
   ngOnInit(): void {
     
-  }
+  };
 
   getUserValue(value:any) {
 
@@ -21,7 +21,7 @@ export class AgeComponent implements OnInit {
     let date = value.date;
 
     const date1 = new Date();
-    const date2 = new Date(date as any);
+    const date2 = new Date(date as string);
 
     const msBetweenDates = date1.getTime() - date2.getTime();
 
@@ -32,19 +32,16 @@ export class AgeComponent implements OnInit {
       let hours = (ms / (1000 * 60 * 60)).toFixed(1);
       let days = (ms / (1000 * 60 * 60 * 24)).toFixed(1);
 
-      return 'Ciao ' + name + ' ' + lastname + ' fino ad ora hai vissuto: ' + hours + ' Ore, '
+      return 'Ciao ' + name + ' ' + lastname + ' fino ad ora hai vissuto in giorni: ' + days + ' Giorni, ' + 'in ore: ' + hours + ' Ore, ' + 'in minuti: ' + minutes + ' Minuti, '
 
-    }
+    };
 
-    console.log(msToTime(msBetweenDates))
+    const boxResponse = document.querySelector('.response-box') as HTMLDivElement;
+    const response = msToTime(msBetweenDates);
+    const text = document.createTextNode(response);
 
-  }
+    boxResponse.appendChild(text);
+
+  };
 
 }
-
-/* document.getElementById('getYearsBtn').addEventListener('click', function () {
-  var enteredDate = document.getElementById('sampleDate').value;
-  // Below one is the single line logic to calculate the no. of years...
-  var years = new Date(new Date() - new Date(enteredDate)).getFullYear() - 1970;
-  console.log(years);
-}); */

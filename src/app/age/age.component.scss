@@ -39,6 +39,18 @@ $orange: #a86832;
                     width: 100%;
                 }
             }
+
+            .btn-box {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 30px;
+
+                div {
+                    width: fit-content;
+                    margin-top: 30px;
+                }
+            }
         }
     }
 }
